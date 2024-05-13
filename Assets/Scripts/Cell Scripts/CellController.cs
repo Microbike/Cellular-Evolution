@@ -1,28 +1,28 @@
 using UnityEngine;
 using System;
+using UnityEngine.Events;
 
 public class CellController : MonoBehaviour
 {
     [NonSerialized] public float horizontalInput;
     [NonSerialized] public float verticalInput;
+    public float energy;
+    public float maxEnergy;
+    public float life;
+    public float lifespan;
+    public SpriteRenderer mySprite;
+    public UnityEvent onSplit;
+    public bool amPlayerController;
+    public bool alive;
 
-    private void Awake()
+    public void AwakeCell()
     {
-    }
-    public virtual void Update()
-    {
-
+        life = lifespan;
+        energy = 0;
     }
 
-    // Function to initiate an Split
     public virtual void Split()
     {
-        GameObject newCell = Instantiate(this.gameObject);
-        PlayerController pc = newCell.GetComponent<PlayerController>();
-        if(pc != null)
-        {
-            Destroy(pc);
-            newCell.AddComponent<AIController>();
-        }
+        onSplit.Invoke();
     }
 }

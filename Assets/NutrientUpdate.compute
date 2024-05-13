@@ -1,0 +1,27 @@
+#pragma kernel NutrientUpdate
+
+RWTexture2D<float> NutrientTexture;
+
+//float SoakRate;
+//float DepletionRate;
+float resolution;
+[numthreads(8, 8, 1)]
+void NutrientUpdate (uint3 id : SV_DispatchThreadID)
+{
+    float x = id.x / resolution;
+    float y = id.y / resolution;
+    //float nutrientLevel = NutrientTexture[id.xy];
+    NutrientTexture[id.xy] = float4(id.x & id.y, (id.x & 15)/15.0, (id.y & 15)/15.0, 0.0);
+    // Soak up nutrients over time
+    //nutrientLevel += SoakRate;
+
+    // Deplete nutrients near cells
+    // You would need to replace this part with your own code to detect cells and deplete nutrients near them
+    // For the sake of example, I'll just deplete nutrients uniformly for now
+
+    //nutrientLevel -= DepletionRate;
+
+    // Clamp nutrient level to [0, 1]
+    //nutrientLevel = clamp(nutrientLevel, 0.0f, 1.0f);
+
+}

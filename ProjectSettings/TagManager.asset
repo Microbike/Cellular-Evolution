@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - CollisionManager
+  - EnergyBar
+  - HealthBar
+  - SplitButton
   layers:
   - Default
   - TransparentFX

@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class Mutation : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    protected CellController _cellController;
+    protected SoftCollision myCell;
+    public string Name;
+    public string Description;
+    public virtual void Awake()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        _cellController = GetComponent<CellController>();
+        myCell = GetComponent<SoftCollision>();
     }
 }
