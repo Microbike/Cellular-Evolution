@@ -7,7 +7,7 @@ public class Mutation : MonoBehaviour
     protected CellController _cellController;
     protected SoftCollision myCell;
     public string Name;
-    public string Description;
+    [TextAreaAttribute]public string Description;
     public virtual void Awake()
     {
         _cellController = GetComponent<CellController>();

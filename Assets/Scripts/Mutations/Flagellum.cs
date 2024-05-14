@@ -10,8 +10,6 @@ public class Flagellum : Mutation
 
     private void Start()
     {
-        Name = "Flagellum";
-        Description = "An appendage that allows cells to use energy to swim";
     }
 
     private void Update()
